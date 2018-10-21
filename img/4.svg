@@ -321,7 +321,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="424.52995"
+     inkscape:cx="192.38709"
      inkscape:cy="328.27674"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -562,7 +562,7 @@
          x="12.959888"
          y="249.9996"
          style="font-size:6.02908421px;fill:#ff6600;stroke-width:0.26458332"
-         id="tspan4828">wait for an empty callback</tspan></text>
+         id="tspan4828">wait for an empty stack</tspan></text>
     <rect
        transform="matrix(0,0.58052307,-0.80946777,0,344.62979,228.1984)"
        y="211.59944"

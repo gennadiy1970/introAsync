@@ -279,7 +279,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="-24.268837"
+     inkscape:cx="-256.41169"
      inkscape:cy="269.40114"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
@@ -560,6 +560,6 @@
          x="3.1470926"
          y="249.12337"
          style="font-size:6.02908421px;fill:#ff6600;stroke-width:0.26458332"
-         id="tspan4828">wait for an empty callback</tspan></text>
+         id="tspan4828">wait for an empty stack</tspan></text>
   </g>
 </svg>

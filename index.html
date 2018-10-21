@@ -35,22 +35,23 @@
     <div class="wrapper">
         <section>
             <div class="img-wrp">
-                <h4>1</h4>
-                    <p>Начало выполения программы.</p> 
-                    <p>Стек выполняет код из потока.</p> 
-                    <p>События из Web Api обрабатываются параллельно:</p>
-                    <ul>
-                        <li>поступают в очередь FIFO</li>
-                        <li>ожидают освобождение стека</li>
-                    </ul>
+                <h4>1 Event Loop</h4>
+                <p>Начало выполения программы.</p>
+                <p>Стек выполняет код из потока.</p>
+                <p>События из Web Api обрабатываются параллельно:</p>
+                <ul>
+                    <li>поступают в очередь FIFO</li>
+                    <li>ожидают освобождение стека</li>
+                </ul>
                 <img src="./img/1.svg" alt="">
             </div>
             <div class="img-wrp">
+                <h4>3 Wait for an empty stack</h4>
                 <p>Callback попадает в стек и становитя кодом стека. Очередь ожидает завершения выполнения этого кода.</p>
                 <img src="./img/3.svg" alt="">
             </div>
-            <div class="img-wrp">
-                <h4>requestAnimationFrame</h4>
+            <!-- <div class="img-wrp">
+                <h4>6 requestAnimationFrame</h4>
                 <p><a href="./asyncLoopRAF/index.html" target="_blank" rel="nofollow">Пример</a></p>
                 <p>Создание строгой последовательности выполнения - один callback перед
                     одним браузерным обновлением экрана делает анимацию плавной. 
@@ -58,26 +59,46 @@
                     Нельзя использовать для часов и таймеров, т.к. отображение будет с задержкой.
                 </p>
                     <img src="./img/6.svg" alt="request Animation Frame">
+            </div> -->
+            <div class="img-wrp">
+                <h4>5 Трюк с setTimeout(cb, 0)</h4>
+                <p><a href="./asyncLoop/index.html" target="_blank" rel="nofollow">Пример неблокирующего, асинхронного
+                        кода</a></p>
+                <img src="./img/5.svg" alt="setTimeout(cb, 0)">
             </div>
+
         </section>
         <section>
             <div class="img-wrp">
-                <h4>2</h4>
-                    <p>Из callback queue вход в стек разрешен только при пустом стеке. А значит callback входят по одому, ожидая опустошения стека.</p>
+                <h4>2 Empty stack</h4>
+                <p>Из callback queue вход в стек разрешен только при пустом стеке. А значит callback входят по одому,
+                    ожидая опустошения стека.</p>
                 <img src="./img/2.svg" alt="epmty stack">
             </div>
-            <h4>Блокирование экрана приложения</h4>
             <div class="img-wrp">
+                <h4>4 Блокирование экрана приложения</h4>
                 <p>Приблизительно один раз в 60 секунд браузер блокирует очередь событий.
-                    Другая очередь, имеющая более высокий приоритет, ожидает освобождения стека, чтобы отрисовать окно браузера.</p>
+                    Другая очередь, имеющая более высокий приоритет, ожидает освобождения стека, чтобы отрисовать окно
+                    браузера.</p>
+                <p><a href="./syncLoop/index.html" target="_blank" rel="nofollow">Пример блокирующего кода</a></p>
                 <img src="./img/4.svg" alt="blocking of render queue">
             </div>
-            <p><a href="./syncLoop/index.html" target="_blank" rel="nofollow">Пример блокирующего кода</a></p>
-            
-            <div class="img-wrp">
+            <!-- <div class="img-wrp">
             <h4>5 Трюк с setTimeout(cb, 0)</h4>
             <p><a href="./asyncLoop/index.html" target="_blank" rel="nofollow">Пример неблокирующего, асинхронного кода</a></p>
             <img src="./img/5.svg" alt="setTimeout(cb, 0)">
+            </div> -->
+
+
+            <div class="img-wrp">
+                <h4>6 requestAnimationFrame</h4>
+                <p><a href="./asyncLoopRAF/index.html" target="_blank" rel="nofollow">Пример</a></p>
+                <p>Создание строгой последовательности выполнения - один callback перед
+                    одним браузерным обновлением экрана делает анимацию плавной.
+                    Существенно снижает нагрузку на браузер.
+                    Нельзя использовать для часов и таймеров, т.к. отображение будет с задержкой.
+                </p>
+                <img src="./img/6.svg" alt="request Animation Frame">
             </div>
         </section>
     </div>
