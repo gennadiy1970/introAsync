@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Async</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" integrity="sha256-oSrCnRYXvHG31SBifqP2PM1uje7SJUyX0nTwO2RJV54="
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>Асинхронность JS</h2>
+        <p>Всякий код, имеющий функции высшего порядка может быть асинхронным, но для
+            создания аснхроности требуется кое-что еще...
+        </p>
+        <p>Асинхронность реализуется при работе с браузером и nodejs за счет <b>Event Loop</b> - цикла, отслеживающего
+            события.
+            Event Loop - это не свойство ES6, а реализация возможностей языка JS.
+        </p>
+        <p>Асинхронность - это выполнение кода после потока выполнения. Т.е. после того, как стек вызовов <b>полностью
+                освобождается</b>, в этот стек поступает код из <b>Event Loop</b>.</p>
+        <h4>JS однопоточный, неблокирующий, асинхронный, параллельный язык</h4>
+        <ul>
+            <li>Выполняние кода осуществляется через единственный стек вызовов.</li>
+            <li>Event Loop не блокирует выполнение стека (хотя выполнение стека не позволяет подгружать код из Event
+                Loop)</li>
+            <li>Выполнение кода не является завершнием программы, программа ожидает поступления кода из Event Loop</li>
+            <li>Всё, кроме кода, выполняется параллельно. Т.е. выполнение стека не блокирует работу Event Loop.</li>
+        </ul>
+    </div>
+    <div class="wrapper">
+        <section>
+            <div class="img-wrp">
+                <h4>1</h4>
+                    <p>Начало выполения программы.</p> 
+                    <p>Стек выполняет код из потока.</p> 
+                    <p>События из Web Api обрабатываются параллельно:</p>
+                    <ul>
+                        <li>поступают в очередь FIFO</li>
+                        <li>ожидают освобождение стека</li>
+                    </ul>
+                <img src="./img/1.svg" alt="">
+            </div>
+            <div class="img-wrp">
+                <p>Callback попадает в стек и становитя кодом стека. Очередь ожидает завершения выполнения этого кода.</p>
+                <img src="./img/3.svg" alt="">
+            </div>
+            <div class="img-wrp">
+                <h4>requestAnimationFrame</h4>
+                <p><a href="./asyncLoopRAF/index.html" target="_blank" rel="nofollow">Пример</a></p>
+                <p>Создание строгой последовательности выполнения - один callback перед
+                    одним браузерным обновлением экрана делает анимацию плавной. 
+                    Существенно снижает нагрузку на браузер.
+                    Нельзя использовать для часов и таймеров, т.к. отображение будет с задержкой.
+                </p>
+                    <img src="./img/6.svg" alt="request Animation Frame">
+            </div>
+        </section>
+        <section>
+            <div class="img-wrp">
+                <h4>2</h4>
+                    <p>Из callback queue вход в стек разрешен только при пустом стеке. А значит callback входят по одому, ожидая опустошения стека.</p>
+                <img src="./img/2.svg" alt="epmty stack">
+            </div>
+            <h4>Блокирование экрана приложения</h4>
+            <div class="img-wrp">
+                <p>Приблизительно один раз в 60 секунд браузер блокирует очередь событий.
+                    Другая очередь, имеющая более высокий приоритет, ожидает освобождения стека, чтобы отрисовать окно браузера.</p>
+                <img src="./img/4.svg" alt="blocking of render queue">
+            </div>
+            <p><a href="./syncLoop/index.html" target="_blank" rel="nofollow">Пример блокирующего кода</a></p>
+            
+            <div class="img-wrp">
+            <h4>5 Трюк с setTimeout(cb, 0)</h4>
+            <p><a href="./asyncLoop/index.html" target="_blank" rel="nofollow">Пример неблокирующего, асинхронного кода</a></p>
+            <img src="./img/5.svg" alt="setTimeout(cb, 0)">
+            </div>
+        </section>
+    </div>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>

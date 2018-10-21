@@ -1,0 +1,46 @@
+button {
+  width: 256px;
+  height: 48px;
+  font-size: 24px;
+  font-family: sans-serif;
+  background: #008800;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.center {
+  text-align: center;
+}
+
+.wrapper {
+  width: 480px;
+  margin: auto;
+  box-shadow: 2px 2px 2px 2px hsla(0, 0%, 0%, 0.2);
+  padding: 1rem;
+}
+
+p {
+  text-indent: 2rem;
+  text-align: justify;
+}
+
+pre {
+  background: #0b1015;
+  color: #f7a73d;
+  padding-left: 1rem;
+  border-radius: 6px;
+  box-shadow: 1px 1px 2px 2px hsla(0, 0%, 0%, 0.2);
+}
+
+.comment {
+  color: grey;
+  padding: 0 0.25rem;
+}
+.comment::before {
+  content: "/* ";
+}
+.comment::after {
+  content: " */";
+}
