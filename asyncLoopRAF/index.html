@@ -36,10 +36,8 @@ sbt.addEventListener("click", e =&gt; {
     if (now &lt; time) {
 <span class="comment">функция для создания зазора
     в очереди queue</span>
-      setTimeout(() =&gt; {
         console.log("loop");
-        count();
-      }, 0);
+        requestAnimationFrame(count)
     }
   }, 1000);
 });
